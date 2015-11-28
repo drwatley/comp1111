@@ -1,0 +1,48 @@
+package LevelTwo;
+
+public class Bitshifter {
+    
+    private static char[] cypherOne = {'a', 'c', 'e', 'g', 'i', 'k', 'm',
+                                       'o', 'q', 's', 'u', 'w', 'y'};
+    
+    private static char[] cypherTwo = {'b', 'd', 'f', 'h', 'j', 'l', 'n',
+                                       'p', 'r', 't', 'v', 'x', 'z'};
+         
+    private static char[] realString;
+    
+    public static String encrypt(String key) {
+        realString = new char[key.length()];
+        String result = "";
+        int l = key.length();
+        char ch; 
+        for(int i = 0; i < l; i++) {
+            ch = key.charAt(i);
+            realString[i] = ch; 
+            for(int j = 0; j < cypherOne.length; j++) {
+                if(ch == cypherOne[j]) {
+                    ch += 7;
+                    result += ch;
+                }
+                
+                if(ch == cypherTwo[j]) {
+                    ch -=6;
+                    result += ch;
+                }
+           }
+        }
+        return result;
+    }
+    
+    public static String decrypt(String key) {
+        String result = "";
+        for(int i = 0; i < realString.length; i++){
+            result += realString[i];
+        }
+        return result;
+    }
+}
+
+
+
+
+
