@@ -1,5 +1,7 @@
 
 
+
+
 public class Bitshifter {
     
     public static String encrypt(String key) {
